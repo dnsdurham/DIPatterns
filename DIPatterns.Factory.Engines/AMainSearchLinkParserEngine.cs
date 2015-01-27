@@ -37,9 +37,9 @@ namespace DIPatterns.Factory.Engines
             return urls.ToArray();
         }
 
-        public string GetSearchUrl(string brand, string manNumber, string htupn)
+        public string GetSearchUrl(string brand, string productCode, string industryCode)
         {
-            return String.Format(@"http://www.amain.com/search?cID=&s={0}", htupn);
+            return String.Format(@"http://www.amain.com/search?cID=&s={0}", industryCode);
         }
     }
 }

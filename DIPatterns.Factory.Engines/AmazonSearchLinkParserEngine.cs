@@ -53,9 +53,9 @@ namespace DIPatterns.Factory.Engines
             return urlList.ToArray();
         }
 
-        public string GetSearchUrl(string brand, string manNumber, string htupn)
+        public string GetSearchUrl(string brand, string productCode, string industryCode)
         {
-            return String.Format(@"http://www.amazon.com/gp/search/ref=sr_adv_toys/?search-alias=toys-and-games&unfiltered=1&field-keywords={0}&field-brand={1}&node=&field-price=&field-age_range=&sort=relevancerank&Adv-Srch-Toys-Submit.x=23&Adv-Srch-Toys-Submit.y=8", manNumber, HttpUtility.UrlEncode(brand));
+            return String.Format(@"http://www.amazon.com/gp/search/ref=sr_adv_toys/?search-alias=toys-and-games&unfiltered=1&field-keywords={0}&field-brand={1}&node=&field-price=&field-age_range=&sort=relevancerank&Adv-Srch-Toys-Submit.x=23&Adv-Srch-Toys-Submit.y=8", productCode, HttpUtility.UrlEncode(brand));
         }
     }
 }

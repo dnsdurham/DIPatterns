@@ -3,6 +3,6 @@
     public interface ISearchLinkParserEngine
     {
         string[] GetProductUrls(string pageContents);
-        string GetSearchUrl(string brand, string manNumber, string htupn);
+        string GetSearchUrl(string brand, string productCode, string industryCode);
     }
 }

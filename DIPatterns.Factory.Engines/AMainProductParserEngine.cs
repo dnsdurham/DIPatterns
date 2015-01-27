@@ -7,7 +7,7 @@ namespace DIPatterns.Factory.Engines
 {
     class AMainProductParserEngine :IProductParserEngine
     {
-        public Product GetProductInfo(string productPageContents, string brand, string manNumber, string htupn)
+        public Product GetProductInfo(string productPageContents, string brand, string productCode, string industryCode)
         {
             var doc = new HtmlDocument();
             doc.LoadHtml(productPageContents);

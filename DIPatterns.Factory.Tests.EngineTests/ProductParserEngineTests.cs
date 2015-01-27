@@ -2,6 +2,7 @@
 using DIPatterns.Factory.Contracts.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DIPatterns.Factory.Engines;
+using DIPatterns.Factory.Contracts.Common;
 
 namespace DIPatterns.Factory.Tests.EngineTests
 {
@@ -16,7 +17,7 @@ namespace DIPatterns.Factory.Tests.EngineTests
         public void AmazonProductParserEngine_GetProductInfo()
         {
             var factory = new EngineFactory();
-            var engine = factory.CreateSiteEngine<IProductParserEngine>("Amazon");
+            var engine = factory.CreateSiteEngine<IProductParserEngine>(WebstoreSite.Amazon);
 
             Assert.IsTrue(File.Exists("AmazonProductPage.txt"));
 
@@ -33,7 +34,7 @@ namespace DIPatterns.Factory.Tests.EngineTests
         public void AMainProductParserEngine_GetProductInfo()
         {
             var factory = new EngineFactory();
-            var engine = factory.CreateSiteEngine<IProductParserEngine>("AMain");
+            var engine = factory.CreateSiteEngine<IProductParserEngine>(WebstoreSite.AMain);
 
             Assert.IsTrue(File.Exists("AMainProductPage.txt"));
 

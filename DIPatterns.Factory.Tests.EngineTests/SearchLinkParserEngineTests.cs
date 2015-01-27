@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DIPatterns.Factory.Engines;
 using System.IO;
+using DIPatterns.Factory.Contracts.Common;
 
 namespace DIPatterns.Factory.Tests.EngineTests
 {
@@ -18,7 +19,7 @@ namespace DIPatterns.Factory.Tests.EngineTests
         public void AmazonSearchLinkParserEngine_GetProductUrls()
         {
             var factory = new EngineFactory();
-            var engine = factory.CreateSiteEngine<ISearchLinkParserEngine>("Amazon");
+            var engine = factory.CreateSiteEngine<ISearchLinkParserEngine>(WebstoreSite.Amazon);
 
             Assert.IsTrue(File.Exists("AmazonSearchResults.txt"));
 
@@ -34,7 +35,7 @@ namespace DIPatterns.Factory.Tests.EngineTests
         public void AMainSearchLinkParserEngine_GetProductUrls()
         {
             var factory = new EngineFactory();
-            var engine = factory.CreateSiteEngine<ISearchLinkParserEngine>("AMain");
+            var engine = factory.CreateSiteEngine<ISearchLinkParserEngine>(WebstoreSite.AMain);
 
             Assert.IsTrue(File.Exists("AMainSingleSearchResult.txt"));
 
@@ -53,7 +54,7 @@ namespace DIPatterns.Factory.Tests.EngineTests
         public void AmazonSearchLinkParserEngine_GetSearchUrl()
         {
             var factory = new EngineFactory();
-            var engine = factory.CreateSiteEngine<ISearchLinkParserEngine>("Amazon");
+            var engine = factory.CreateSiteEngine<ISearchLinkParserEngine>(WebstoreSite.Amazon);
 
             Assert.AreEqual(@"http://www.amazon.com/gp/search/ref=sr_adv_toys/?search-alias=toys-and-games&unfiltered=1&field-keywords=00691&field-brand=Bachmann&node=&field-price=&field-age_range=&sort=relevancerank&Adv-Srch-Toys-Submit.x=23&Adv-Srch-Toys-Submit.y=8", engine.GetSearchUrl("Bachmann", "00691", "BAC00691"));
         }
@@ -62,7 +63,7 @@ namespace DIPatterns.Factory.Tests.EngineTests
         public void AMainSearchLinkParserEngine_GetSearchUrl()
         {
             var factory = new EngineFactory();
-            var engine = factory.CreateSiteEngine<ISearchLinkParserEngine>("AMain");
+            var engine = factory.CreateSiteEngine<ISearchLinkParserEngine>(WebstoreSite.AMain);
 
             Assert.AreEqual(@"http://www.amain.com/search?cID=&s=BAC00691", engine.GetSearchUrl("Bachmann", "00691", "BAC00691"));
 

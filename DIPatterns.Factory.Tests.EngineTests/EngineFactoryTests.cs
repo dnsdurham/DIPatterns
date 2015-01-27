@@ -2,6 +2,7 @@
 using DIPatterns.Factory.Contracts.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DIPatterns.Factory.Engines;
+using DIPatterns.Factory.Contracts.Common;
 
 namespace DIPatterns.Factory.Tests.EngineTests
 {
@@ -39,31 +40,17 @@ namespace DIPatterns.Factory.Tests.EngineTests
             var factory = new EngineFactory();
 
             // tests for each handled site
-            Assert.AreNotEqual(null, factory.CreateSiteEngine<ISearchLinkParserEngine>("Amazon"));
-            Assert.AreNotEqual(null, factory.CreateSiteEngine<IProductParserEngine>("Amazon"));
-            Assert.AreNotEqual(null, factory.CreateSiteEngine<ISearchLinkParserEngine>("AMain"));
-            Assert.AreNotEqual(null, factory.CreateSiteEngine<IProductParserEngine>("AMain"));
+            Assert.AreNotEqual(null, factory.CreateSiteEngine<ISearchLinkParserEngine>(WebstoreSite.Amazon));
+            Assert.AreNotEqual(null, factory.CreateSiteEngine<IProductParserEngine>(WebstoreSite.Amazon));
+            Assert.AreNotEqual(null, factory.CreateSiteEngine<ISearchLinkParserEngine>(WebstoreSite.AMain));
+            Assert.AreNotEqual(null, factory.CreateSiteEngine<IProductParserEngine>(WebstoreSite.AMain));
 
             // tests for bad parameters
-
-            // the following will throw an argument exception due to bad site name
-            try
-            {
-                Assert.AreEqual(null, factory.CreateSiteEngine<ISearchLinkParserEngine>("blah"));
-            }
-            catch (ArgumentException ex)
-            {
-                Assert.AreEqual("This site is not supported by this factory", ex.Message);
-            }
-            catch (Exception)
-            {
-                Assert.Fail("unexpected exception");
-            }
 
             // the following will throw an argument exception due to bad interface
             try
             {
-                Assert.AreEqual(null, factory.CreateSiteEngine<IFormatProvider>("Amazon"));
+                Assert.AreEqual(null, factory.CreateSiteEngine<IFormatProvider>(WebstoreSite.Amazon));
             }
             catch (ArgumentException ex)
             {

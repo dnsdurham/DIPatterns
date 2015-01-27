@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using DIPatterns.Factory.Contracts.DataContracts;
 using DIPatterns.Factory.Contracts.Interfaces;
+using DIPatterns.Factory.Contracts.Common;
 
 namespace DIPatterns.Factory.Managers
 {
@@ -17,8 +18,8 @@ namespace DIPatterns.Factory.Managers
 
             // Get the amazon product pricing
             var pageEngine = EngineFactory.CreateEngine<IWebPageEngine>();
-            var amznSearchParser = EngineFactory.CreateSiteEngine<ISearchLinkParserEngine>("Amazon");
-            var amznProductParser = EngineFactory.CreateSiteEngine<IProductParserEngine>("Amazon");
+            var amznSearchParser = EngineFactory.CreateSiteEngine<ISearchLinkParserEngine>(WebstoreSite.Amazon);
+            var amznProductParser = EngineFactory.CreateSiteEngine<IProductParserEngine>(WebstoreSite.Amazon);
             var productAccessor = AccessorFactory.CreateAccessor<IProductAccessor>();
 
             string[] urls = amznSearchParser.GetProductUrls(pageEngine.GetWebPageContents(amznSearchParser.GetSearchUrl(brand, productCode, industryCode), useProxy));
@@ -39,8 +40,8 @@ namespace DIPatterns.Factory.Managers
             }
 
             // Get the amain product pricing
-            var amainSearchParser = EngineFactory.CreateSiteEngine<ISearchLinkParserEngine>("AMain");
-            var amainProductParser = EngineFactory.CreateSiteEngine<IProductParserEngine>("AMain");
+            var amainSearchParser = EngineFactory.CreateSiteEngine<ISearchLinkParserEngine>(WebstoreSite.AMain);
+            var amainProductParser = EngineFactory.CreateSiteEngine<IProductParserEngine>(WebstoreSite.AMain);
 
             urls = amainSearchParser.GetProductUrls(pageEngine.GetWebPageContents(amainSearchParser.GetSearchUrl(brand, productCode, industryCode), useProxy));
             if (urls.Length > 0)

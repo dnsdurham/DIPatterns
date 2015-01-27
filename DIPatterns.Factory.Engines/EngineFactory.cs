@@ -1,4 +1,5 @@
-﻿using DIPatterns.Factory.Contracts.Interfaces;
+﻿using DIPatterns.Factory.Contracts.Common;
+using DIPatterns.Factory.Contracts.Interfaces;
 
 namespace DIPatterns.Factory.Engines
 {
@@ -13,16 +14,16 @@ namespace DIPatterns.Factory.Engines
 
         }
 
-        public T CreateSiteEngine<T>(string siteName) where T : class
+        public T CreateSiteEngine<T>(WebstoreSite site) where T : class
         {
             // Site specific search result parsers
             if (typeof(T) == typeof(ISearchLinkParserEngine))
             {
-                switch (siteName)
+                switch (site)
                 {
-                    case "Amazon":
+                    case WebstoreSite.Amazon:
                         return new AmazonSearchLinkParserEngine() as T;
-                    case "AMain":
+                    case WebstoreSite.AMain:
                         return new AMainSearchLinkParserEngine() as T;
                     default:
                         throw new System.ArgumentException("This site is not supported by this factory");
@@ -33,11 +34,11 @@ namespace DIPatterns.Factory.Engines
             // Site-specific product parsers
             if (typeof(T) == typeof(IProductParserEngine))
             {
-                switch (siteName)
+                switch (site)
                 {
-                    case "Amazon":
+                    case WebstoreSite.Amazon:
                         return new AmazonProductParserEngine() as T;
-                    case "AMain":
+                    case WebstoreSite.AMain:
                         return new AMainProductParserEngine() as T;
                     default:
                         throw new System.ArgumentException("This site is not supported by this factory");

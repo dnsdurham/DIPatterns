@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\WebstoreSite.cs" />
     <Compile Include="DataContracts\Product.cs" />
     <Compile Include="Interfaces\IAccessorFactory.cs" />
     <Compile Include="Interfaces\IEngineFactory.cs" />

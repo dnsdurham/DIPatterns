@@ -60,11 +60,16 @@
     <Compile Include="Mocks\MockProductAccessor.cs" />
     <Compile Include="Mocks\MockWebPageEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PriceCrawlManagerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DIPatterns.Factory.Contracts\Contracts.csproj">
       <Project>{b3ef1541-3a58-4ea0-b52f-45f0f952d6d5}</Project>
       <Name>Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DIPatterns.Factory.Managers\Managers.csproj">
+      <Project>{e4ff0aa8-8d79-4959-aa89-8282271ca19f}</Project>
+      <Name>Managers</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

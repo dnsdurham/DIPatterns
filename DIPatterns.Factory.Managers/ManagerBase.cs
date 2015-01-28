@@ -1,12 +1,13 @@
 ﻿using DIPatterns.Factory.Accessors;
+using DIPatterns.Factory.Contracts.Interfaces;
 using DIPatterns.Factory.Engines;
 
 namespace DIPatterns.Factory.Managers
 {
-    abstract class ManagerBase
+    public abstract class ManagerBase
     {
-        protected EngineFactory EngineFactory { get; private set; }
-        protected AccessorFactory AccessorFactory { get; private set; }
+        public IEngineFactory EngineFactory { get; set; }
+        public IAccessorFactory AccessorFactory { get; set; }
 
         protected ManagerBase()
         {

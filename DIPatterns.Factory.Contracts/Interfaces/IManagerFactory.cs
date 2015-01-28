@@ -9,6 +9,5 @@ namespace DIPatterns.Factory.Contracts.Interfaces
     public interface IManagerFactory
     {
         T CreateManager<T>() where T : class;
-
     }
 }

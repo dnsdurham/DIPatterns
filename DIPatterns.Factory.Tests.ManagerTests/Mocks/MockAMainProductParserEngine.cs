@@ -8,7 +8,9 @@ namespace DIPatterns.Factory.Tests.ManagerTests.Mocks
     {
         public Product GetProductInfo(string productPageContents, string brand, string productCode, string industryCode)
         {
-            throw new NotImplementedException();
+            var product = MockProduct.GetMockProduct();
+            product.Site = "AMain";
+            return product;
         }
     }
 }

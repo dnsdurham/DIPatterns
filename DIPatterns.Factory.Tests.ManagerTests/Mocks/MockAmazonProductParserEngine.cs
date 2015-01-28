@@ -8,7 +8,10 @@ namespace DIPatterns.Factory.Tests.ManagerTests.Mocks
     {
         public Product GetProductInfo(string productPageContents, string brand, string productCode, string industryCode)
         {
-            return MockProduct.GetMockProduct();
+            var product = MockProduct.GetMockProduct();
+            product.Site = "Amazon";
+            return product;
+
         }
     }
 }

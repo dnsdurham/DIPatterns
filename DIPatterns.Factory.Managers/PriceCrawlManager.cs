@@ -5,9 +5,9 @@ using DIPatterns.Factory.Contracts.Common;
 
 namespace DIPatterns.Factory.Managers
 {
-    class PriceCrawlManager : ManagerBase, IPriceCrawlManager
+    public class PriceCrawlManager : ManagerBase, IPriceCrawlManager
     {
-        //TODO: make this class private and implement an interface
+        //TODO: make this class private and implement an interface while still supporting unit testing and mocking
         public Product[] GetProductPricingUsingSearch(string brand, string productCode, string industryCode, bool useProxy, string connString)
         {
             // TODO: Need to refactor this so it is not so repetitive. Possibly pass in references to the engines and make the workflow here generic

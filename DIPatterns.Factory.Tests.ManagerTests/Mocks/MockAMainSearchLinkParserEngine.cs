@@ -3,7 +3,7 @@ using DIPatterns.Factory.Contracts.Interfaces;
 
 namespace DIPatterns.Factory.Tests.ManagerTests.Mocks
 {
-    class MockAmazonSearchLinkParserEngine : ISearchLinkParserEngine
+    class MockAMainSearchLinkParserEngine : ISearchLinkParserEngine
     {
         public string[] GetProductUrls(string pageContents)
         {

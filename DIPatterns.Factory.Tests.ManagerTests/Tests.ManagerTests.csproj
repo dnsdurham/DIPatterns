@@ -51,9 +51,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Mocks\MockAccessorFactory.cs" />
+    <Compile Include="Mocks\MockAMainProductParserEngine.cs" />
     <Compile Include="Mocks\MockAmazonProductParserEngine.cs" />
+    <Compile Include="Mocks\MockAMainSearchLinkParserEngine.cs" />
     <Compile Include="Mocks\MockAmazonSearchLinkParserEngine.cs" />
     <Compile Include="Mocks\MockEngineFactory.cs" />
+    <Compile Include="Mocks\MockProduct.cs" />
     <Compile Include="Mocks\MockProductAccessor.cs" />
     <Compile Include="Mocks\MockWebPageEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

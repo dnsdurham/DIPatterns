@@ -1,14 +1,14 @@
-﻿
+﻿using System;
 using DIPatterns.Factory.Contracts.Interfaces;
 using DIPatterns.Factory.Contracts.DataContracts;
 
 namespace DIPatterns.Factory.Tests.ManagerTests.Mocks
 {
-    class MockAmazonProductParserEngine : IProductParserEngine
+    class MockAMainProductParserEngine : IProductParserEngine
     {
         public Product GetProductInfo(string productPageContents, string brand, string productCode, string industryCode)
         {
-            return MockProduct.GetMockProduct();
+            throw new NotImplementedException();
         }
     }
 }

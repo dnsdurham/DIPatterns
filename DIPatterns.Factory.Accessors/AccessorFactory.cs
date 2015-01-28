@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DIPatterns.Factory.Contracts.Interfaces;
 
-namespace DIPatterns.Factory.Tests.ManagerTests.Mocks
+namespace DIPatterns.Factory.Accessors
 {
-    class MockAccessorFactory : IAccessorFactory
+    public class AccessorFactory : IAccessorFactory
     {
         public T CreateAccessor<T>() where T : class
         {
             if (typeof(T) == typeof(IProductAccessor))
-                return new MockProductAccessor() as T;
+                return new ProductAccessor() as T;
 
             throw new ArgumentException(typeof(T).Name + " is not supported by this factory");
-
         }
     }
 }

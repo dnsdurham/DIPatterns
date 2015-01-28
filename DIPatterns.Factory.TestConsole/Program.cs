@@ -67,7 +67,9 @@ namespace DIPatterns.Factory.TestConsole
 
         private static void ProductPriceCrawl(string brand, string productCode, string industryCode)
         {
-            var mgr = new PriceCrawlManager();
+            var factory = new ManagerFactory();
+            var mgr = factory.CreateManager<IPriceCrawlManager>();
+
             var products = mgr.GetProductPricingUsingSearch(brand, productCode, industryCode, false, _connString);
 
             // Write out the results to the console window
@@ -84,7 +86,9 @@ namespace DIPatterns.Factory.TestConsole
             // load the file
             using (StreamReader file = new StreamReader(@"Resources\products.csv"))
             {
-                var mgr = new PriceCrawlManager();
+                var factory = new ManagerFactory();
+                var mgr = factory.CreateManager<IPriceCrawlManager>();
+
                 string textLine;
                 // Loop until the end of file and call the operation for the line
                 while ((textLine = file.ReadLine()) != null)

@@ -5,7 +5,7 @@ using DIPatterns.Factory.Contracts.Common;
 
 namespace DIPatterns.Factory.Managers
 {
-    public class PriceCrawlManager : ManagerBase
+    class PriceCrawlManager : ManagerBase, IPriceCrawlManager
     {
         //TODO: make this class private and implement an interface
         public Product[] GetProductPricingUsingSearch(string brand, string productCode, string industryCode, bool useProxy, string connString)

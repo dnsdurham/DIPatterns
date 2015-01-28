@@ -2,6 +2,7 @@
 using DIPatterns.Factory.Contracts.DataContracts;
 using HtmlAgilityPack;
 using System.Net;
+using System.Text.RegularExpressions;
 
 namespace DIPatterns.Factory.Engines
 {
@@ -20,6 +21,11 @@ namespace DIPatterns.Factory.Engines
             //var priceNode = doc.DocumentNode.SelectSingleNode(@"//*[@id='productpage']/div[4]/div[3]/table/tr[3]/td/span");
             // Table containg price has variable rows so modified to simply look for a node with a class == "theprice"
             var priceNode = doc.DocumentNode.SelectSingleNode(@"//*[@class='theprice']");
+
+            //Make sure we only pull the price string out of the node and not things like "Sale:", etc
+            var regex = new Regex(@"\$(?=.*\d)\d{0,6}(\.\d{1,2})?");
+            string price = priceNode != null ? WebUtility.HtmlDecode(regex.Match(priceNode.InnerText).Value) : "-1.00";
+
             // Product name
             // //*[@id="productpage"]/div[3]/div[1]/div[2]/h1
             var nameNode = doc.DocumentNode.SelectSingleNode(@"//*[@id='productpage']/div[3]/div[1]/div[2]/h1");
@@ -28,7 +34,7 @@ namespace DIPatterns.Factory.Engines
             {
                 Brand = "Unknown",
                 ListPrice = "$0.00",
-                Price = priceNode != null ? WebUtility.HtmlDecode(priceNode.InnerText.Trim()) : "-1.00",
+                Price = price,
                 ProductName = nameNode != null ? WebUtility.HtmlDecode(nameNode.InnerText.Trim()) : "Unknown",
                 Site = "AMain"
             };

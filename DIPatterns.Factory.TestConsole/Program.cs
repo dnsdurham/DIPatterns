@@ -2,8 +2,6 @@
 using System.Configuration;
 using System.IO;
 using DIPatterns.Factory.Contracts.DataContracts;
-using DIPatterns.Factory.Contracts.Interfaces;
-using DIPatterns.Factory.Engines;
 using DIPatterns.Factory.Managers;
 
 namespace DIPatterns.Factory.TestConsole

@@ -1,6 +1,7 @@
-﻿using DIPatterns.Factory.Contracts.Interfaces;
-using System.Net;
+﻿using System.Net;
 using System.Text;
+using DIPatterns.Factory.Contracts.Interfaces;
+
 
 namespace DIPatterns.Factory.Engines
 {

@@ -1,5 +1,4 @@
 ﻿using DIPatterns.Factory.Accessors;
-using DIPatterns.Factory.Contracts.Interfaces;
 using DIPatterns.Factory.Engines;
 
 namespace DIPatterns.Factory.Managers

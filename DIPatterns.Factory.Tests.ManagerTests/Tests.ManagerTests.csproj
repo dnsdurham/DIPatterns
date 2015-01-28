@@ -50,7 +50,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Mocks\MockAccessorFactory.cs" />
+    <Compile Include="Mocks\MockAmazonProductParserEngine.cs" />
+    <Compile Include="Mocks\MockAmazonSearchLinkParserEngine.cs" />
+    <Compile Include="Mocks\MockEngineFactory.cs" />
+    <Compile Include="Mocks\MockProductAccessor.cs" />
+    <Compile Include="Mocks\MockWebPageEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DIPatterns.Factory.Contracts\Contracts.csproj">
+      <Project>{b3ef1541-3a58-4ea0-b52f-45f0f952d6d5}</Project>
+      <Name>Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

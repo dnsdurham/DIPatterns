@@ -1,5 +1,7 @@
-﻿using DIPatterns.Factory.Contracts.Common;
+﻿using System;
+using DIPatterns.Factory.Contracts.Common;
 using DIPatterns.Factory.Contracts.Interfaces;
+
 
 namespace DIPatterns.Factory.Engines
 {
@@ -10,7 +12,7 @@ namespace DIPatterns.Factory.Engines
             if (typeof(T) == typeof(IWebPageEngine))
                 return new WebPageEngine() as T;
 
-            throw new System.ArgumentException(typeof(T).Name + " is not supported by this factory");
+            throw new ArgumentException(typeof(T).Name + " is not supported by this factory");
 
         }
 
@@ -26,7 +28,7 @@ namespace DIPatterns.Factory.Engines
                     case WebstoreSite.AMain:
                         return new AMainSearchLinkParserEngine() as T;
                     default:
-                        throw new System.ArgumentException("This site is not supported by this factory");
+                        throw new ArgumentException("This site is not supported by this factory");
                 }
 
             }
@@ -41,11 +43,11 @@ namespace DIPatterns.Factory.Engines
                     case WebstoreSite.AMain:
                         return new AMainProductParserEngine() as T;
                     default:
-                        throw new System.ArgumentException("This site is not supported by this factory");
+                        throw new ArgumentException("This site is not supported by this factory");
                 }                
             }
 
-            throw new System.ArgumentException("This interface is not supported by this factory");
+            throw new ArgumentException("This interface is not supported by this factory");
         }
     }
 }

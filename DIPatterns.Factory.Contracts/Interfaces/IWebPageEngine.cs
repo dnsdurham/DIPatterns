@@ -1,4 +1,5 @@
-﻿namespace DIPatterns.Factory.Contracts.Interfaces
+﻿
+namespace DIPatterns.Factory.Contracts.Interfaces
 {
     public interface IWebPageEngine
     {
